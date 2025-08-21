@@ -1,7 +1,9 @@
 const app = require("express")();
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+
 const postsRouter = require("./routes/posts");
+const usersRouter = require("./routes/users");
 
 dotenv.config();
 
@@ -14,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/posts", postsRouter);
+app.use("/api/users", usersRouter);
 
 app.listen(PORT, (error) => {
   if (!error) {
